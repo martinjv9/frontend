@@ -1,0 +1,48 @@
+<mat-card>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <h2>Add New Car</h2>
+
+    <mat-form-field appearance="fill" class="full-width field-spacing">
+      <mat-label>Model</mat-label>
+      <input matInput formControlName="model" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width field-spacing">
+      <mat-label>Year</mat-label>
+      <input matInput type="number" formControlName="year" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width field-spacing">
+      <mat-label>Country</mat-label>
+      <mat-select
+        [(value)]="selectedCountry"
+        (selectionChange)="filterCompanies()"
+      >
+        <mat-option *ngFor="let country of uniqueCountries" [value]="country">
+          {{ country }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width field-spacing">
+      <mat-label>Car Company</mat-label>
+      <mat-select formControlName="carCompnyId">
+        <mat-option
+          *ngFor="let company of filteredCompanies"
+          [value]="company.id"
+        >
+          {{ company.name }}
+        </mat-option>
+      </mat-select> </mat-form-field
+    >``
+
+    <button
+      mat-flat-button
+      color="primary"
+      type="submit"
+      [disabled]="form.invalid"
+    >
+      Add Car
+    </button>
+  </form>
+</mat-card>

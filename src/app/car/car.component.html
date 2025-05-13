@@ -1,1 +1,24 @@
-<p>car works!</p>
+<h2>All Cars</h2>
+<mat-card *ngFor="let car of cars" class="car-card">
+  <mat-card-title>{{ car.model }} ({{ car.year }})</mat-card-title>
+  <mat-card-content> Company: {{ car.carCompanyName }} </mat-card-content>
+</mat-card>
+<div class="pagination-buttons">
+  <button
+    mat-flat-button
+    color="primary"
+    (click)="prevPage()"
+    [disabled]="page === 1"
+  >
+    Previous
+  </button>
+
+  <button
+    mat-flat-button
+    color="primary"
+    (click)="nextPage()"
+    [disabled]="isLastPage"
+  >
+    Next
+  </button>
+</div>

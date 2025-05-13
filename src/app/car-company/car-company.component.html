@@ -1,1 +1,5 @@
-<p>car-company works!</p>
+<h2>All Car Companies</h2>
+
+<mat-card *ngFor="let company of companies" class="company-card">
+  <mat-card-content> Country : {{ company.countryOrigin }} </mat-card-content>
+</mat-card>

@@ -1,23 +1,19 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
+import { NavBarComponent } from './navbar.component';
+import { AuthService } from '../auth/auth.service';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 
-import { NavbarComponent } from './navbar.component';
-
-describe('NavbarComponent', () => {
-  let component: NavbarComponent;
-  let fixture: ComponentFixture<NavbarComponent>;
-
+describe('NavBarComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [NavbarComponent]
-    })
-    .compileComponents();
-
-    fixture = TestBed.createComponent(NavbarComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+      imports: [NavBarComponent],
+      providers: [provideHttpClientTesting()],
+    }).compileComponents();
   });
 
   it('should create', () => {
+    const fixture = TestBed.createComponent(NavBarComponent);
+    const component = fixture.componentInstance;
     expect(component).toBeTruthy();
   });
 });

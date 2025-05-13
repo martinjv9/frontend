@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { WeatherForecast } from '../weather-forecast';
 import { HttpClient } from '@angular/common/http';
-import { environment } from '../../environments/environment.prod';
+import { environment } from '../../environments/environment.development';
 
 @Component({
   selector: 'app-weather',
