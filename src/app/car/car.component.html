@@ -4,6 +4,11 @@
   <mat-card-content>
     <a [routerLink]="['/carCompanies']">Company: {{ car.carCompanyName }} </a>
   </mat-card-content>
+  <mat-card-actions *ngIf="isAdmin">
+    <button mat-flat-button color="warn" (click)="deleteCar(car.id)">
+      Delete
+    </button>
+  </mat-card-actions>
 </mat-card>
 <div class="pagination-buttons">
   <button

@@ -3,13 +3,13 @@ import { Component, OnInit } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { Car } from '../car';
 import { MatCardModule } from '@angular/material/card';
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-car',
-  imports: [NgFor, MatCardModule, MatButtonModule, RouterLink],
+  imports: [NgFor, MatCardModule, MatButtonModule, RouterLink, NgIf],
   templateUrl: './car.component.html',
   styleUrl: './car.component.scss',
 })
@@ -18,10 +18,12 @@ export class CarComponent implements OnInit {
   page: number = 1;
   pageSize: number = 20;
   isLastPage: boolean = false;
+  isAdmin: boolean = false;
 
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
+    this.isAdmin = localStorage.getItem('role') === 'Admin';
     this.loadCars();
   }
 
@@ -49,5 +51,16 @@ export class CarComponent implements OnInit {
       this.page--;
       this.loadCars();
     }
+  }
+
+  deleteCar(id: number): void {
+    if (!confirm('Are you sure you want to delete this car?')) return;
+
+    this.http.delete(`${environment.baseUrl}api/cars/${id}`).subscribe({
+      next: () => {
+        this.cars = this.cars.filter((car) => car.id !== id);
+      },
+      error: (err) => console.error('Failed to delete car:', err),
+    });
   }
 }
