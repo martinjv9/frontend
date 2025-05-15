@@ -1,7 +1,9 @@
 <h2>All Cars</h2>
 <mat-card *ngFor="let car of cars" class="car-card">
   <mat-card-title>{{ car.model }} ({{ car.year }})</mat-card-title>
-  <mat-card-content> Company: {{ car.carCompanyName }} </mat-card-content>
+  <mat-card-content>
+    <a [routerLink]="['/carCompanies']">Company: {{ car.carCompanyName }} </a>
+  </mat-card-content>
 </mat-card>
 <div class="pagination-buttons">
   <button

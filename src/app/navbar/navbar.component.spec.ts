@@ -1,6 +1,5 @@
 import { TestBed } from '@angular/core/testing';
 import { NavBarComponent } from './navbar.component';
-import { AuthService } from '../auth/auth.service';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 
 describe('NavBarComponent', () => {

@@ -13,7 +13,7 @@ import { LoginRequest } from './login-request';
 import { AuthService } from './auth.service';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { routes } from '../app.routes';
-import { environment } from '../../environments/environment.development';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-login',

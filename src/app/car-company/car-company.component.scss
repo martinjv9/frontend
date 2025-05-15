@@ -2,8 +2,18 @@
   margin-bottom: 1rem;
 }
 
+mat-card-title {
+  margin-top: 0.75rem;
+}
+
+mat-card-content {
+  padding-bottom: 0.75rem;
+}
+
 mat-card {
   background-color: #fff;
   color: #000;
   border: 1px solid #ccc;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
